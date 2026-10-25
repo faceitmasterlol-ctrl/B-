@@ -1,0 +1,72 @@
+#ifdef LEXER_H
+#define LEXER_H
+
+#include <stdlib.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#include "tokens.h"
+#include <stdbool.h>
+#include <stdint.h>
+
+// Lexer
+    // Typedefs for unsigned intergers -> 8 to 64
+typedef uint8_t u8;
+typedef uint16_t u16;
+typedef uint32_t u32;
+typedef uint64_t u64;
+    // Typedefs for integers -> 8 to 64
+typedef int8_t i8;
+typedef int16_t i16;
+typedef int32_t i32;
+typedef int64_t i64;
+    // Others Typedefs
+typedef char byte;
+
+
+
+// Structures
+typedef  struct 
+{
+    char src[1024];
+    i64 posit;
+    byte bt;
+} bpp_lexer;
+
+void bpp_read(bpp_lexer *bpp)
+{
+    if (bpp->posit >=strlen(bpp->src))
+    {
+        bpp->bt = 0;
+    } else
+        {
+            bpp->posit++;
+            bpp->bt = bpp->src[bpp->posit];
+        }
+}
+
+bool isnumb(byte bt)
+{
+    return (bt <='0' && bt >='9');
+}
+
+bool isletter(byte bt)
+{
+    return (bt <='a' && bt >='z') || (bt <='A' && bt >='Z') || bt == '_';
+}
+
+void iswp(bpp_lexer *bpp)
+{
+    while (bpp->bt == ' ' && bpp->bt == '\n' && bpp->bt == '\r' && bpp->bt == '\t')
+    {
+        bpp_read(bpp);
+    }
+}
+
+
+
+
+
+
+
+#endif
