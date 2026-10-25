@@ -1,0 +1,37 @@
+#ifndef TOKENS_H
+#define TOKENS_H
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+enum Tokens_B
+{
+        // Symbol Stack
+    BPP_LPAREN, // (
+    BPP_RPAREN, // )
+    BPP_LBRACE, // {
+    BPP_RBRACE, // }
+    BPP_SEMICOLON, // comment
+    BPP_DOT, // .
+    BPP_LBRACK, // [
+    BPP_RBRACK, // ]
+    BPP_PERTANGE, // %
+    BPP_COLON, // :
+    BPP_DOUBLECOLON, // ::
+        // Ident Keywords
+    BPP_IDENT, // Identity
+    BPP_NUMB, // 1, 2, 3 ...
+    BPP_ALLOC, // alloc
+    BPP_PUT, // put
+    BPP_TEXT, // text
+    BPP_STRINGS, // ""
+        // Others
+        // Empty For Now...
+};
+
+
+
+
+
+#endif
